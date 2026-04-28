@@ -1,39 +1,45 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int vowel_count(string s)
+bool somadhan(string s)
 {
-    int ans=0;
-    for(int i=0; i<s.size(); i++)
+    int len=s.size();
+    if(s[0]=='1' && s[1]=='0')
     {
-        if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='y')
+        if(s[2]>='2')
         {
-            ans++;
+            return true;
+        }
+        else if(len>=4 && s[2]=='1' && s[3]>='0')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
-    return ans;
+    else
+    {
+        return false;
+    }
 }
-
 int main()
 {
-    int n;
-    cin>>n;
-    cin.ignore();
-    vector<int>v;
-    vector<string> st;
-    for(int i=0; i<n; i++)
+    int mrm;
+    cin>>mrm;
+    while(mrm--)
     {
         string s;
-        getline(cin, s);
-        st.push_back(s);
+        cin>>s;
+        if(somadhan(s))
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
     }
-    for(int i=0;i<n;i++)
-    {
-        cout << vowel_count(st[i]) << " ";
-    }
-    cout<<endl;
-    
-    
-
     return 0;
 }
